@@ -1,0 +1,11 @@
+.center{
+    text-align:center
+}
+
+.container {
+    margin-top: 5%;
+    height: 60%;
+    overflow: auto;
+    justify-content:center;
+    align-items:center;
+}

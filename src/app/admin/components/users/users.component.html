@@ -1,0 +1,140 @@
+<div class="mt-2 ml-2" style="width: 98%;">
+<div class="ml-2 float-right" style="width: 100%;">
+  <button mat-stroked-button color="primary" class="float-right" (click)="SetNewUser()"> + New User </button> 
+  <br/>
+</div>  
+<div class="row mt-2" *ngIf=showEditPanel>
+  <div class="col-xl-12 ">
+    <div class="accordion md-accordion accordion-1" id="accordionEx23" role="tablist">
+      <div class="card">
+        <div class="card-header z-depth-1" role="tab" id="heading96">
+          <h5 class="text-uppercase">
+            <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse97">
+              New User
+            </a>
+            <div class="float-right ">
+              <button mat-stroked-button color="primary" (click)="AddUpdateUser(UserDetails)" class="mr-2" > Save </button> 
+        <button mat-stroked-button color="primary" (click)="showEditPanel=false" class="mr-2" > Cancel </button> 
+              <i class="fa fa-minus-circle ml-md-0 " data-toggle="collapse" href="#collapse97"
+                style="cursor: pointer;"></i>
+            </div>
+          </h5>
+        </div>
+        <div id="collapse97" class="collapse show" role="tabpanel"
+          aria-labelledby="heading96" data-parent="#accordionEx23">
+          <table class="table table-bordered" id="dataTable" style="width: 90%;" cellspacing="0">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Password</th>
+                <th>role</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput [(ngModel)]="UserDetails.firstName">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [(ngModel)]="UserDetails.lastName">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field appearance="outline">
+                  <mat-label>User Name</mat-label>
+                  <input matInput [(ngModel)]="UserDetails.userName">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [(ngModel)]="UserDetails.password">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Select</mat-label>
+                    <mat-select [(value)]="UserDetails.role">
+                      <mat-option value="admin">Admin</mat-option>
+                      <mat-option value="pmo">PMO</mat-option>
+                      <mat-option value="poc">POC</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Email Id</mat-label>
+                    <input matInput [(ngModel)]="UserDetails.emailId">
+                  </mat-form-field>
+                </td>
+                <!-- <td>
+                  <button mat-stroked-button color="primary" (click)="getUserData(user.id)" > Edit </button> 
+                  <button mat-stroked-button  color="primary" (click)="DeleteUserData(user)" > Delete </button>
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="row ml-2 mt-2" style="width: 99%;">
+  <div style="width: 100%;">
+    <div class="accordion md-accordion accordion-1" id="accordionEx23" role="tablist">
+      <div class="card">
+        <div class="card-header z-depth-1" role="tab" id="heading96">
+          <h5 class="text-uppercase mb-0 py-1">
+            <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+              Users
+            </a>
+            <div class="float-right ">
+              <i class="fa fa-minus-circle ml-md-0 " data-toggle="collapse" href="#collapse96"
+                style="cursor: pointer;"></i>
+            </div>
+          </h5>
+        </div>
+        <div class="table-responsive" id="collapse96" class="collapse show" role="tabpanel"
+          aria-labelledby="heading96" data-parent="#accordionEx23">
+          <table class="table table-striped table-bordered" id="dataTable" width="80%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Password</th>
+                <th>role</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of UserList;">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.role}}</td>
+                <td>{{user.emailId}}</td>
+                <td>
+                  <button mat-stroked-button color="primary" (click)="getUserData(user.id)" class="mr-2" > Edit </button> 
+                  <button mat-stroked-button  color="primary" (click)="DeleteUserData(user)" class="mr-2" > Delete </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,63 @@
+
+<mat-toolbar  color="primary" class="toolbar">
+    <div fxShow="showNavBar" fxHide.gt-sm="true" >
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <span>Outreach Feedback</span>
+    <div fxShow="true" fxHide.lt-md="true">
+   <button [routerLink]="'/Dashboard'" mat-button [hidden]="!showNavBar" ><i class="fa fa-tachometer"></i>&nbsp;Dashboard</button>
+    <button [routerLink]="'/EventList'" mat-button [hidden]="!showNavBar"><i class="fa fa-calendar"></i>&nbsp; Events </button>
+    <button [routerLink]="'/EventReport'" mat-button [hidden]="!showNavBar"><i class="fa fa-book"></i>&nbsp; Reports </button>
+    <button mat-button [matMenuTriggerFor]="Config" [hidden]="!(showNavBar && isAdminUser)"><i class="fa fa-cogs"></i>&nbsp;Configuration</button>
+    <mat-menu #Config="matMenu">
+      <button mat-menu-item [routerLink]="'/Users'"><i class="fa fa-users"></i>&nbsp;Users</button>
+      <button mat-menu-item [routerLink]="'/Questions'"><i class="fa fa-comments"></i>&nbsp;Questions</button>
+    </mat-menu>
+    <span class="menu-spacer"></span>
+    <button mat-button (click)="Logout()" [hidden]="!showNavBar"><i class="fa fa-sign-out"></i>Logout</button>
+    </div>
+</mat-toolbar>
+
+<mat-sidenav-container autosize>
+  <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
+    <div fxLayout="column" style="align-items: flex-start;">
+      <a mat-button routerLink="/Dashboard"><i class="fa fa-tachometer"></i>&nbsp;Dashboard</a>
+      <a mat-button routerLink="/EventList"><i class="fa fa-calendar"></i>&nbsp;Events</a>
+      <a mat-button routerLink="/EventReport"><i class="fa fa-book"></i>&nbsp;Reports</a>
+      <!--<a mat-button [matMenuTriggerFor]="Config"><i class="fa fa-cogs"></i>&nbsp;Configuration</a>
+       <mat-menu #Config="matMenu" fxLayout="rows">
+        <a mat-button routerLink="/Users"><i class="fa fa-users"></i>&nbsp;Users</a> &nbsp;| &nbsp;
+        <a mat-button routerLink="/Questions"><i class="fa fa-comments"></i>&nbsp;Questions</a>
+      </mat-menu> -->
+      <a mat-button (click)="showSubSubMenu = !showSubSubMenu" [hidden]="!(showNavBar && isAdminUser)">
+        <span *ngIf="isExpanded || isShowing"><i class="fa fa-cogs"></i>&nbsp;Config</span></a>
+      <!-- <mat-list-item (click)="showSubSubMenu = !showSubSubMenu">
+        <span *ngIf="isExpanded || isShowing"><i class="fa fa-cogs"></i>&nbsp;Config</span>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item> -->
+      <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+        <mat-list-item [routerLink]="'/Users'"><i class="fa fa-users"></i>&nbsp;Users</mat-list-item>
+        <mat-list-item [routerLink]="'/Questions'"><i class="fa fa-comments"></i>&nbsp;Questions</mat-list-item>
+      </div>
+      <a mat-button (click)="Logout()"><i class="fa fa-sign-out"></i>Logout</a>
+      
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>    
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<footer class="bg-light">
+  <div class="container-fluid">
+      <div class="align-items-center small">
+          <div class="text-muted align-items-center"> &copy; 2019 Outreach Feedback Management System</div>
+          <!-- <div>
+              <a href="#">Privacy Policy</a>
+              &middot;
+              <a href="#">Terms &amp; Conditions</a>
+          </div> -->
+      </div>
+  </div>
+</footer>

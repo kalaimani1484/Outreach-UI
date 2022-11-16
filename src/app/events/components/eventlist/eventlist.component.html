@@ -1,0 +1,76 @@
+<div class="container-fluid mt-2">
+    <div class="accordion md-accordion accordion-1" id="accordionEx23" role="tablist">
+        <div class="card">
+            <div class="card-header z-depth-1" role="tab" id="heading96">
+                <h5 class="text-uppercase mb-0 py-1">
+                    <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+                        Events
+                    </a>
+                    <div class="float-right ">
+                        <i class="fa fa-minus-circle ml-md-0 " data-toggle="collapse" href="#collapse96"
+                            style="cursor: pointer;"></i>
+                    </div>
+                </h5>
+            </div>
+            <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                data-parent="#accordionEx23">
+                <div class="card-body">
+                    <div class="row my-1">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Event ID</th>
+                                    <th>Month</th>
+                                    <th>Base Location</th>
+                                    <th>Council Name</th>
+                                    <th>Beneficiary Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let event of events">
+                                    <th>
+                                        <!-- <a mat-button href="{{'#' + event.eventId}}"  data-toggle=" collapse" role="button">Link</a> -->
+                                        <a class="btn btn-primary btn-sm" data-toggle="collapse" role="button"
+                                             href="{{'#a' + event.eventId}}"><span class="fa fa-plus-circle"></span></a>
+                                    </th>
+                                    <td colspan="5">
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <td>{{ event.eventId }}</td>
+                                                <td>{{ event.eventMonth }}</td>
+                                                <td>{{ event.baseLocation }}</td>
+                                                <td>{{ event.councilName }}</td>
+                                                <td>{{ event.benificiaryName }}</td>
+                                            </tr>
+
+                                            <tr class="collapse row-data"  id="{{'a' + event.eventId}}">
+                                                <td colspan="5">
+                                                    <table class="table table-bordered">
+                                                        <tr >
+                                                            <th>Event Name</th>
+                                                            <td>{{ event.eventName }}</td>
+                                                        </tr>
+                                                        <tr >
+                                                            <th>Status</th>
+                                                            <td>{{ event.status }}</td>
+                                                        </tr>
+                                                        <tr >
+                                                            <th>Description</th>
+                                                            <td>{{ event.description }}</td>
+                                                        </tr>
+                                                    </table>
+                                                    <a class="btn btn-primary btn-sm " routerLink={{getEventInfoRoute(event)}}><span class="fa fa-eye mr-2"></span>View</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

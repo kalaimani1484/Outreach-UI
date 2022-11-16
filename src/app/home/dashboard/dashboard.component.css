@@ -1,0 +1,13 @@
+.eventcard {
+width: 40vh;
+ background-color:skyblue;
+ color: black;
+ margin-left: 10vh;
+ margin-top: 10vh;
+}
+
+.eventcardaction {
+    text-align: right; 
+    background-color:ivory; 
+    color: black;
+}

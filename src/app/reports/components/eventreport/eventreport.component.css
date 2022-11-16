@@ -1,0 +1,19 @@
+tr.mat-row {
+    height: 30px!important;
+  }
+
+tr.mat-header-row {
+    height: 30px!important;
+    
+  }
+.mat-header-cell{
+    font-size: medium!important;
+    font-weight: bold!important;
+    text-align: center!important;
+}
+
+.table td, .table th {
+ 
+ vertical-align:middle!important;
+ margin-left: 5px!important;
+}

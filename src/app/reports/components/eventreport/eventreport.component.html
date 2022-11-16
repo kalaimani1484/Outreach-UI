@@ -1,0 +1,62 @@
+<div class="card mb-4 mt-2">
+  <div class="align-items-left rows ml-3" style="width: 97%;">
+    <div class="columns">
+      <i class="fa fa-envelope fa-2x"></i> <label>
+        &nbsp;Email Reports for the follwoing user</label>
+        <br/>
+      </div>
+        <div class="columns">
+        <form >
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput #receipiant  type="text" placeholder="Ex. pat@example.com">
+          </mat-form-field> &nbsp;
+        <!-- <input matInput appearance="outline" placeholder="Recipient email address">  -->
+        <button mat-stroked-button color='primary' (click)="sendEventReport(receipiant)" style="height: 35px;">Email Report</button>
+        <label>{{successmsg}}</label>
+      </form>
+      </div>
+  </div>
+</div>
+<table mat-table [dataSource]="events" matSort class="mat-elevation-z8 table table-striped table-bordered ml-3" style="width: 97%;">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="eventId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header class="bg-light"> Event ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.eventId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="benificiaryName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Benificiary Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.benificiaryName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="baseLocation">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Base Location </th>
+    <td mat-cell *matCellDef="let element"> {{element.baseLocation}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="councilName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Council Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.councilName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="project">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Project </th>
+    <td mat-cell *matCellDef="let element"> {{element.project}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator style="width: 97%;" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+<!-- {{events | json }} -->
+
+

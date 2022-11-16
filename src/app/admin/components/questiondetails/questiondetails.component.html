@@ -1,0 +1,80 @@
+
+      <div class="card-body">
+            <div class="radio-group-row">
+                <label>Feedback Type</label>
+                <mat-radio-group aria-labelledby="radio-group-label"  class="radio-group-row"  [(ngModel)]="Question.feedbacktype">
+                  <mat-radio-button class="radio-button" value="PARTICIPATED"> Participated </mat-radio-button>
+                  <mat-radio-button class="radio-button" value="NOTATTENDED"> Not Attended </mat-radio-button>
+                  <mat-radio-button class="radio-button" value="UNREGISTERED"> Unregistered </mat-radio-button>
+                </mat-radio-group>
+        </div>
+
+        <div class="radio-group-row">
+            <div class="form-check">
+              <mat-radio-group aria-labelledby="radio-group-label" class="radio-group-column" [(ngModel)]="Question.answertype">
+                <mat-radio-button class="radio-button" value="1"> Allow Multiple Answers </mat-radio-button>
+                <mat-radio-button class="radio-button" value="2"> Free Text Answers </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          <div class="column">
+            <div class="radio-group-row">
+              <div>
+                <mat-form-field appearance="fill" style="width:50vw;">
+                  <!-- <textarea matInput [(ngModel)]="Question.question" matTextareaAutosize matAutosizeMinRows=2 matAutosizeMaxRows=2></textarea> -->
+                  <mat-label>Question</mat-label>
+                  <input matInput #qston maxlength="500" [(ngModel)]="Question.question">
+                  <mat-hint align="end">{{qston.value.length}} / 500</mat-hint>
+                </mat-form-field> 
+              </div>
+            </div>
+            <div  *ngFor="let ans of Question.answers let i = index" class="full-width radio-group-row">
+            <mat-form-field class="answer-input">
+              <input matInput appearance="outline"   [(ngModel)]="ans.answer"> 
+            </mat-form-field>
+            <button mat-stroked-button color='primary' (click)="RemoveAns(Question,ans.id)" style="height: 50px;">Delete Answers</button>
+            </div>
+            <div>
+              <div >
+                <button mat-stroked-button color='primary' class="btn-success btn-sm" (click)="addEmptyAns(Question)" *ngIf="Question.answertype=='1'" >Add Answers</button>
+              </div>
+            </div>
+          </div>
+        </div>
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-8">
+                <div class="form-check form-check-inline">
+                  <button mat-stroked-button color='primary' class="btn btn-info" (click)="SaveQuestion(Question)" >Save</button>
+                </div>
+                <div class="form-check form-check-inline">
+                  <button mat-stroked-button color='primary' class="btn btn-secondary" (click)="CancelAction()" >Cancel</button>
+                </div>
+                <div class="form-check form-check-inline">
+                  <button mat-stroked-button color='primary' class="btn btn-danger" (click)="DeleteQuestion(Question)" >Delete</button>
+                </div>
+              </div>
+            </div>
+      </div>
+
+
+<!-- <label>Question: </label> 
+<mat-form-field appearance="fill">
+    <textarea matInput [(ngModel)]="Question.question"></textarea>
+</mat-form-field>
+<br/> -->
+<!-- <ng-container *ngFor="let ans of Question.answers">
+<mat-checkbox class="check-box"  [(ngModel)]="ans" >
+{{ans}}
+</mat-checkbox>
+</ng-container> -->
+
+<!-- <mat-form-field  *ngFor="let ans of Question.answers" class="radio-group-row">
+    <input matInput appearance="outline" [(ngModel)]="ans.answer"> 
+    <button mat-stroked-button color='primary' (click)="RemoveAns(Question,ans.id)" >Delete Answers</button>
+</mat-form-field>
+
+<button mat-stroked-button color='primary' (click)="addEmptyAns(Question)" >Add Answers</button>
+<br/>
+<button mat-stroked-button color='primary' (click)="SaveQuestion(Question)" >Save</button>
+<button mat-stroked-button color='primary' (click)="CancelAction()" >Cancel</button>
+<button mat-stroked-button color='primary' (click)="DeleteQuestion(Question)" >Delete</button> -->

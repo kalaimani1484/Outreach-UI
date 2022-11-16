@@ -1,0 +1,149 @@
+<div class="container-fluid" *ngIf="!showsuccess">
+    <h1 class="mt-4">FeedBack</h1>
+    <div class="alert alert-info">
+        <strong>Feed back request for 1st december</strong><br />
+        <!-- <strong>Normal User</strong> - U: user P: user<br />
+        <strong>Administrator</strong> - U: admin P: admin -->
+    </div>
+    <form>
+        <div class="form-group">
+            <div class="card">
+                <div class="card-header z-depth-1" role="tab" id="heading96">
+                    <h5 class="mb-0 py-1">
+                        <a class="breadcrumb-item">
+                            How do you rate the over all event?
+                        </a>
+                    </h5>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12 ">
+                        <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                            data-parent="#accordionEx23">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-1 col-md-6">
+                                        <div class="row justify-content-center">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-6">
+                                        <div class="row justify-content-center">
+                                            <div class="col-auto example-block text-center"><label class="radio-inline">
+                                                    <input type="radio" name="emotion" id="sad"
+                                                        class="input-hidden" value=1 [(ngModel)] = "feedbackResponse.Rating" /><img
+                                                        src="../../assets/images/angry-regular.PNG" width="84"
+                                                        height="84"></label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-6">
+                                        <div class="row justify-content-center">
+                                            <div class="col-auto example-block text-center"><label class="radio-inline">
+                                                    <input type="radio" name="emotion" id="sad"
+                                                        class="input-hidden" value=2 [(ngModel)] = "feedbackResponse.Rating"/><img
+                                                        src="../../assets/images/frown-regular.PNG" width="84"
+                                                        height="84"></label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-6">
+                                        <div class="row justify-content-center">
+                                            <div class="col-auto example-block text-center"><label class="radio-inline">
+                                                    <input type="radio" name="emotion" id="sad"
+                                                        class="input-hidden" value=3 [(ngModel)] = "feedbackResponse.Rating"/><img
+                                                        src="../../assets/images/meh-regular.PNG" width="84"
+                                                        height="84"></label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-6">
+                                        <div class="row justify-content-center">
+                                            <div class="col-auto example-block text-center"><label class="radio-inline">
+                                                    <input type="radio" name="emotion" id="sad"
+                                                        class="input-hidden" value=4 [(ngModel)] = "feedbackResponse.Rating"/><img
+                                                        src="../../assets/images/smile-regular.PNG" width="84"
+                                                        height="84"></label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-6">
+                                        <div class="row justify-content-center">
+                                            <div class="col-auto example-block text-center"><label class="radio-inline">
+                                                    <input type="radio" name="emotion" id="sad"
+                                                        class="input-hidden" value=5 [(ngModel)] = "feedbackResponse.Rating"/><img
+                                                        src="../../assets/images/grin-hearts-regular.PNG" width="84"
+                                                        height="84"></label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-1 col-md-6">
+                                        <div class="row justify-content-center">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngFor="let qust of questions; let q = index">
+                    <div class="card" *ngIf = "qust.answertype==2">
+                        <div class="card-header z-depth-1" role="tab" id="heading96">
+                            <h5 class="mb-0 py-1">
+                                <a class="breadcrumb-item">
+                                    {{qust.question}}
+                                </a>
+                            </h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                                    data-parent="#accordionEx23">
+                                    <div class="card-body">
+                                        <textarea id="{{qust.questionid}}" style="width: 100%;" (blur)="UpateFreeTextAns($event,qust.questionid)"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" *ngIf="qust.answertype==1">
+                        <div class="card-header z-depth-1" role="tab" id="heading96">
+                            <h5 class="mb-0 py-1">
+                                <a class="breadcrumb-item">
+                                    {{qust.question}}
+                                </a>
+                            </h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                                    data-parent="#accordionEx23">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-2 col-md-6" *ngFor="let ans of qust.answers; let a = index">
+                                                <div class="row justify-content-center">
+                                                    <div class="card text-white mb-4 bg-dark">
+                                                        <div class="card-body">
+                                                            <input type="checkbox"
+                                                                [name]="ans.id"
+                                                                value="{{ans.answer}}" (change)="foo(qust.questionid, ans.answer)">
+                                                                {{ans.answer}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-info" (click)="ResetFeedback()">RESET</button>
+            &nbsp; <button type="button" class="btn btn-success" (click)="SubmitFeedback()">SUBMIT</button>
+        </div>
+    </form>
+</div>
+<div class="container-fluid" *ngIf="showsuccess">
+    <div class="alert alert-info">
+        <strong>Thanks for submitting the FeedBack</strong><br />
+    </div>
+</div>

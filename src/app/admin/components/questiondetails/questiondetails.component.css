@@ -1,0 +1,33 @@
+.radio-group-row {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
+
+  .radio-group-column {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  .check-box {
+    margin: 0 10px;
+  }
+
+ .row{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.answer-input{
+  width: 40vw;
+    margin-right: 1vw;
+    height: 5vw;
+}
+
+.full-width{
+  width: 100%;
+}

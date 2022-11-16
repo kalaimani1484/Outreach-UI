@@ -1,0 +1,337 @@
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-xl-6 ">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <i class="fa fa-envelope fa-3x ml-1"></i>&nbsp;<label class=" text-white stretched-link align-items-center">Email
+                        Reminder</label>
+                    <div class="text-white">Sit Back and relax while the app send emails 
+                        <!-- <button  type="button" mat-stroked-button color="secondary" class="eventcardaction" (click)="triggerFeedbackEmail()">SendEmail</button>         -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="col-xl-6  ">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <i class="fa fa-lightbulb-o fa-3x ml-1"></i> &nbsp;<label class="text-white stretched-link align-items-center">Future Implementations</label>
+                    <div class="text-white">This place holder can be used for adding any other actions in future.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="accordion md-accordion accordion-1" id="accordionEx23" role="tablist" *ngIf="eventInfo">
+        <div class="card">
+
+            <div class="card-header z-depth-1" role="tab" id="heading96">
+                <h5 class="text-uppercase mb-0 py-1">
+                    <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+                        {{eventInfo.eventName}}
+                    </a>
+                    <div class="float-right ">
+                        <button  type="button" mat-stroked-button color="primary" (click)="triggerFeedbackEmail()">SendEmail</button>
+                        &nbsp;<i class="fa fa-minus-circle ml-md-0 " data-toggle="collapse" href="#collapse96"
+                            style="cursor: pointer;"></i>
+                    </div>
+                </h5>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 ">
+                    <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                        data-parent="#accordionEx23">
+                        <div class="card-body">
+                            <div class="accordion md-accordion accordion-1" id="accordionEx24" role="tablist">
+                                <div class="card">
+                                    <div class="card-header z-depth-1" role="tab" id="heading96">
+                                        <h5 class="text-uppercase mb-0 py-1">
+                                            <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+                                                <div class="float-left ">
+                                                    <label cla>ID : {{eventInfo.eventId}}</label>
+                                                </div>
+                                                <div class="float-right ">
+                                                    <label cla> {{eventInfo.eventDate}}</label>
+                                                </div>
+                                            </a>
+
+                                        </h5>
+                                    </div>
+                                    <div id="collapse97" class="collapse show" role="tabpanel"
+                                        aria-labelledby="heading96" data-parent="#accordionEx24">
+                                        <div class="card-body">
+                                            <div class="row my-6">
+                                                <div class="card card-body">
+                                                    {{eventInfo.description}}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 ">
+                    <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                        data-parent="#accordionEx23">
+                        <div class="card-body">
+                            <div class="accordion md-accordion accordion-1" id="accordionEx24" role="tablist">
+                                <div class="card">
+                                    <div class="card-header z-depth-1" role="tab" id="heading96">
+                                        <h5 class="text-uppercase mb-0 py-1">
+                                            <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+                                                <div class="float-left ">
+                                                    <label cla>Location : {{eventInfo.baseLocation}}</label>
+                                                </div>
+                                                <div class="float-right ">
+                                                    <label cla>Council:{{eventInfo.councilName}}</label>
+                                                </div>
+                                            </a>
+
+                                        </h5>
+                                    </div>
+                                    <div id="collapse97" class="collapse show" role="tabpanel"
+                                        aria-labelledby="heading96" data-parent="#accordionEx24">
+                                        <div class="card-body">
+                                            <div class="row my-6"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngIf="feedbackInfo">
+                <div class="col-xl-4 ">
+                    <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                        data-parent="#accordionEx23">
+                        <div class="card-body">
+                            <div class="accordion md-accordion accordion-1" id="accordionEx24" role="tablist">
+                                <div class="card">
+                                    <div class="card-header z-depth-1" role="tab" id="heading96">
+                                        <h5 class="text-uppercase mb-0 py-1">
+                                            <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+                                                PARTICIPATED
+                                            </a>
+                                            <div class="float-right ">
+                                                <i class="fa fa-minus-circle ml-md-0 " data-toggle="collapse"
+                                                    href="#collapse97" style="cursor: pointer;"></i>
+                                            </div>
+                                        </h5>
+                                    </div>
+                                    <div id="collapse97" class="collapse show" role="tabpanel"
+                                        aria-labelledby="heading96" data-parent="#accordionEx24">
+                                        <div class="card-body">
+                                            <div class="row my-6">
+                                                <ul>
+                                                    <li *ngFor="let feedback of feedbackInfo|filter:participantFilter">{{feedback.responses[0].answers}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 ">
+                    <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                        data-parent="#accordionEx23">
+                        <div class="card-body">
+                            <div class="accordion md-accordion accordion-1" id="accordionEx24" role="tablist">
+                                <div class="card">
+                                    <div class="card-header z-depth-1" role="tab" id="heading96">
+                                        <h5 class="text-uppercase mb-0 py-1">
+                                            <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+                                                NOT PARTICIPATED
+                                            </a>
+                                            <div class="float-right ">
+                                                <i class="fa fa-minus-circle ml-md-0 " data-toggle="collapse"
+                                                    href="#collapse97" style="cursor: pointer;"></i>
+                                            </div>
+                                        </h5>
+                                    </div>
+                                    <div id="collapse97" class="collapse show" role="tabpanel"
+                                        aria-labelledby="heading96" data-parent="#accordionEx24">
+                                        <div class="card-body">
+                                            <div class="row my-6">
+                                                <ul>
+                                                    <li *ngFor="let feedback of feedbackInfo|filter:nonParticipantFilter">{{feedback.responses[0].answers}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 ">
+                    <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                        data-parent="#accordionEx23">
+                        <div class="card-body">
+                            <div class="accordion md-accordion accordion-1" id="accordionEx24" role="tablist">
+                                <div class="card">
+                                    <div class="card-header z-depth-1" role="tab" id="heading96">
+                                        <h5 class="text-uppercase mb-0 py-1">
+                                            <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+                                                UNREGISTERED
+                                            </a>
+                                            <div class="float-right ">
+                                                <i class="fa fa-minus-circle ml-md-0 " data-toggle="collapse"
+                                                    href="#collapse97" style="cursor: pointer;"></i>
+                                            </div>
+                                        </h5>
+                                    </div>
+                                    <div id="collapse97" class="collapse show" role="tabpanel"
+                                        aria-labelledby="heading96" data-parent="#accordionEx24">
+                                        <div class="card-body">
+                                            <div class="row my-6">
+                                                <ul>
+                                                    <li *ngFor="let feedback of feedbackInfo|filter:unregisterFilter">{{feedback.responses[0].answers}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 ">
+                    <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                        data-parent="#accordionEx23">
+                        <div class="card-body">
+                            <div class="accordion md-accordion accordion-1" id="accordionEx24" role="tablist">
+                                <div class="card">
+                                    <div class="card-header z-depth-1" role="tab" id="heading96">
+                                        <h5 class="text-uppercase mb-0 py-1">
+                                            <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+                                                STATISTICS
+                                            </a>
+                                            <div class="float-right ">
+                                                <i class="fa fa-minus-circle ml-md-0 " data-toggle="collapse"
+                                                    href="#collapse97" style="cursor: pointer;"></i>
+                                            </div>
+                                        </h5>
+                                    </div>
+                                    <div id="collapse97" class="collapse show" role="tabpanel"
+                                        aria-labelledby="heading96" data-parent="#accordionEx24">
+                                        <div class="card-body">
+                                            <div class="row my-6">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>AVERAGE RATING</th>
+                                                            <th>VOLUNTEERS</th>
+                                                            <th>VOLUNTEERING HOURS</th>
+                                                            <th>OVERALL HOURS</th>
+                                                            <th>TRAVEL HOURS</th>
+                                                            <th>LIVES IMPACTED</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                {{eventInfo.statisticData.averageRate}}
+                                                            </td>
+                                                            <td>
+                                                                {{eventInfo.statisticData.volunteersCount}}
+                                                            </td>
+                                                            <td>
+                                                                {{eventInfo.statisticData.volunteerHours + eventInfo.statisticData.travelHours}}
+                                                            </td>
+                                                            <td>
+                                                                {{eventInfo.statisticData.volunteerHours}}
+                                                            </td>
+                                                            <td>
+                                                                {{eventInfo.statisticData.travelHours}}
+                                                            </td>
+                                                            <td>
+                                                                {{eventInfo.statisticData.livesImpacted}}
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 " *ngIf="eventInfo">
+                    <div id="collapse96" class="collapse show" role="tabpanel" aria-labelledby="heading96"
+                        data-parent="#accordionEx23">
+                        <div class="card-body">
+                            <div class="accordion md-accordion accordion-1" id="accordionEx24" role="tablist">
+                                <div class="card">
+                                    <div class="card-header z-depth-1" role="tab" id="heading96">
+                                        <h5 class="text-uppercase mb-0 py-1">
+                                            <a class="breadcrumb-item" aria-expanded="true" aria-controls="collapse96">
+                                                POC DETAILS
+                                            </a>
+                                            <div class="float-right ">
+                                                <i class="fa fa-minus-circle ml-md-0 " data-toggle="collapse"
+                                                    href="#collapse97" style="cursor: pointer;"></i>
+                                            </div>
+                                        </h5>
+                                    </div>
+                                    <div id="collapse97" class="collapse show" role="tabpanel"
+                                        aria-labelledby="heading96" data-parent="#accordionEx24">
+                                        <div class="card-body">
+                                            <div class="row my-6">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>EMPLOYEE ID</th>
+                                                            <th>NAME</th>
+                                                            <th>CONTACT NUMBER</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <tr *ngFor ="let poc of eventInfo.poCData">
+                                                        <td>
+                                                            {{poc.employeeId}}
+                                                        </td>
+                                                        <td>
+                                                            {{poc.name}}
+                                                        </td>
+                                                        <td>
+                                                            {{poc.contact}}
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- {{eventInfo | json }}
+
+{{feedbackInfo | json }} -->

@@ -1,0 +1,23 @@
+<div class="col-md-3 offset-md-4 container rounded border">
+<form name="LoginForm" [formGroup]="LoginRForm" (ngSubmit)="Login(LoginRForm.value,LoginRForm)" class="center container"style="margin-top: 10%;">
+    <mat-form-field>
+      <input matInput placeholder="UserName" required formControlName="UserName">
+      <mat-error *ngIf="LoginRForm.controls['UserName'].hasError('required')">
+        User name is
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width justify-content-center">
+      <input matInput [type]="'password'" required placeholder="Password" formControlName="Password">
+      <mat-error *ngIf="LoginRForm.controls['Password'].hasError('required')">
+        Password is
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <br/>
+    <button mat-stroked-button color="primary" class="button_blue middle_btn" style="margin-top: 10%;">Login</button>
+  </form>
+
+</div>  

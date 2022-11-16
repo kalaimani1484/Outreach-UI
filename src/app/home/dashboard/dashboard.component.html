@@ -1,0 +1,49 @@
+<div class="row mr-5" *ngIf="dashboardData" >
+<mat-card class="eventcard">
+    <mat-card-header>
+        Total Events: 
+    </mat-card-header>
+    <mat-card-content style="text-align: center;" >
+        <h3>{{dashboardData.totalEvents}}</h3>
+    </mat-card-content>
+    <mat-card-actions class="float-right" >
+        <button mat-stroked-button color="secondary" class="eventcardaction" [routerLink]="'/EventList'">View Details&nbsp;<i class="fa fa-arrow-circle-right"></i> </button>
+    </mat-card-actions>
+</mat-card>
+
+<mat-card class="eventcard">
+    <mat-card-header >
+        Lives Impacted: 
+    </mat-card-header>
+    <mat-card-content style="text-align: center;">
+        <h3>{{dashboardData.livesImpacted}}</h3>
+    </mat-card-content>
+    <mat-card-actions class="float-right" >
+        <button mat-stroked-button class="eventcardaction" [routerLink]="'/EventList'">View Details&nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+    </mat-card-actions>
+</mat-card>
+
+<mat-card class="eventcard">
+    <mat-card-header >
+        Total Volunteers: 
+    </mat-card-header>
+    <mat-card-content style="text-align: center;">
+        <h3>{{dashboardData.totalVolunteers}}</h3>
+    </mat-card-content>
+    <mat-card-actions class="float-right" >
+        <button mat-stroked-button class="eventcardaction" [routerLink]="'/EventList'">View Details&nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+    </mat-card-actions>
+</mat-card>
+
+<mat-card class="eventcard">
+    <mat-card-header >
+        Total Participants : 
+    </mat-card-header>
+    <mat-card-content style="text-align: center;">
+    <h3>{{dashboardData.totalParticipants}}</h3>
+    </mat-card-content>
+    <mat-card-actions class="float-right" >
+        <button mat-stroked-button class="eventcardaction" [routerLink]="'/EventList'">View Details&nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+    </mat-card-actions>
+</mat-card>
+</div>

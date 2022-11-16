@@ -1,0 +1,57 @@
+.menu-spacer {
+    flex: 1 1 auto;
+  }
+ 
+
+div {
+    overflow: inherit;
+}
+
+a{
+    text-decoration: none;
+    font-size: 110%;
+    white-space: normal;
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+
+  .mat-sidenav-content{
+      background-color: white;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: medium;
+      height: 89vh;
+  }
+
+  .toolbar{
+    max-height: 50px;
+    min-height: 50px;
+  }
+  .footer{
+    max-height: 20px;
+    min-height: 20px;
+  }
+
+  .menu-button {
+    transition: 300ms ease-in-out;
+    transform: rotate(0deg);
+  }
+  .menu-button.rotated {
+    transform: rotate(180deg);
+  }
+  .submenu {
+    overflow-y: hidden;
+    transition: transform 300ms ease;
+    transform: scaleY(0);
+    transform-origin: top;
+    padding-left: 30px;
+    display: none;
+  }
+  .submenu.expanded {
+    transform: scaleY(1);
+    display: inline;
+  }
+  .full-width {
+    width: 100%;
+  }
